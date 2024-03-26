@@ -42,12 +42,11 @@ console.log('Formik errors before submission:', formik.errors);
         validationSchema,
         onSubmit: async (values) => {
          
-            console.log(values, "--------values-------")
+
             try {
                 const res = await axios.post('http://localhost:5000/add', { ...values })
 if(res.data.message==='user added successFully')
 {
-    
     toast.success("User Added ")
     formik.resetForm();
 }else{
@@ -102,6 +101,7 @@ toast.error("Soemthing went Wrong")
                                     }`}
                           
                                 required
+                                placeholder="Enter Your Name"
                             />
                             {formik.touched.name && formik.errors.name && (
                                 <div className="text-red-500 text-xs">
@@ -121,7 +121,7 @@ toast.error("Soemthing went Wrong")
                                 onBlur={formik.handleBlur}
                                 className={`shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light ${formik.touched.email && formik.errors.email ? "border-red-500" : ""
                                     }`}
-                                placeholder="name@flowbite.com"
+                                placeholder="Enter Your Email"
                                 required
                             />
                             {formik.touched.email && formik.errors.email && (
@@ -144,6 +144,7 @@ toast.error("Soemthing went Wrong")
                                     }`}
                    
                                 required
+                                placeholder="Enter Your Mobile"
                             />
                             {formik.touched.mobile && formik.errors.mobile && (
                                 <div className="text-red-500 text-xs">
@@ -188,6 +189,7 @@ toast.error("Soemthing went Wrong")
                                     }`}
 
                                 required
+                                
                             />
                             {formik.touched.dateOfjoin && formik.errors.dateOfjoin && (
                                 <div className="text-red-500 text-xs">
@@ -210,6 +212,7 @@ toast.error("Soemthing went Wrong")
                                 className={`shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light ${formik.touched.Role && formik.errors.Role ? 'border-red-500' : ''
                                     }`}
                                 required
+                                placeholder="Select Your Role"
                             >
                                 <option value='' disabled>
                                     Select a role
@@ -239,6 +242,7 @@ toast.error("Soemthing went Wrong")
                                 className={`shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light ${formik.touched.Department && formik.errors.Department ? 'border-red-500' : ''
                                     }`}
                                 required={formik.values.Role === ''}
+                                placeholder="Select the Department"
                             />
                             {formik.touched.Department && formik.errors.Department && (
                                 <div className='text-red-500 text-xs'>{formik.errors.Department}</div>
